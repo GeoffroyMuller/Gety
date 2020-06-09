@@ -1,3 +1,5 @@
+import 'package:gety_back/controllers/user.controller.dart';
+
 import 'gety_back.dart';
 
 /// This type initializes an application.
@@ -5,6 +7,8 @@ import 'gety_back.dart';
 /// Override methods in this class to set up routes and initialize services like
 /// database connections. See http://aqueduct.io/docs/http/channel/.
 class GetyBackChannel extends ApplicationChannel {
+  ManagedContext context;
+
   /// Initialize services in this method.
   ///
   /// Implement this method to initialize services, read values from [options]
@@ -14,6 +18,12 @@ class GetyBackChannel extends ApplicationChannel {
   @override
   Future prepare() async {
     logger.onRecord.listen((rec) => print("$rec ${rec.error ?? ""} ${rec.stackTrace ?? ""}"));
+    logger.onRecord.listen((rec) => print("$rec ${rec.error ?? ""} ${rec.stackTrace ?? ""}"));
+    var dataModel = ManagedDataModel.fromCurrentMirrorSystem();
+    var psc = PostgreSQLPersistentStore.fromConnectionInfo(
+        "postgres", "vawuri*5", "localhost", 5432, "gety");
+
+    context = ManagedContext(dataModel, psc);
   }
 
   /// Construct the request channel.
@@ -26,13 +36,7 @@ class GetyBackChannel extends ApplicationChannel {
   Controller get entryPoint {
     final router = Router();
 
-    // Prefer to use `link` instead of `linkFunction`.
-    // See: https://aqueduct.io/docs/http/request_controller/
-    router
-      .route("/example")
-      .linkFunction((request) async {
-        return Response.ok({"key": "value"});
-      });
+    router.route("/users/[:id]").link(() => UserController(context));
 
     return router;
   }
