@@ -1,0 +1,14 @@
+gety_back/.buildlog
+gety_back/.pub/
+gety_back/build/
+gety_back/packages
+gety_back/.packages
+gety_back/*.dart.js
+gety_back/*.js_
+gety_back/*.js.deps
+gety_back/*.js.map
+gety_back/workspace.xml
+gety_back/Dart_Packages.xml
+gety_back/.DS_Store
+gety_back/.idea/
+gety_back/*.aqueduct.pid
