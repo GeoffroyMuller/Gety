@@ -36,6 +36,8 @@ class GetyBackChannel extends ApplicationChannel {
   Controller get entryPoint {
     final router = Router();
 
+    router.route("/public/*").link(() => FileController("public/"));
+
     router.route("/users/[:id]").link(() => UserController(context));
 
     return router;
