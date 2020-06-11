@@ -19,23 +19,19 @@ class _Inscription extends State<Inscription> {
         children: <Widget>[
           TextField(
             decoration: InputDecoration(
-                border: OutlineInputBorder(),
                 labelText: 'email'
             ),
           ),
           SizedBox(height: 16.0),
           TextField(
             decoration: InputDecoration(
-              border: OutlineInputBorder(),
               labelText: 'mdp'
             ),
           ),
-          Row(
-            children: <Widget>[
-              OutlineButton(
-                child: Text('Connexion'),
-              ),
-            ],
+          Container(
+            child: RaisedButton(
+              child: Text('Connexion'),
+            ),
           )
         ],
       ),
