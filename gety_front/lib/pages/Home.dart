@@ -17,14 +17,10 @@ class _Home extends State<Home> {
             title: new Text("Gety"),
             leading: new Icon(Icons.android),
             actions: <Widget>[
-              new Icon(Icons.android),
-              new Icon(Icons.android),
-              new Icon(Icons.android),
             ],
             elevation: 20.0
         ),
         body: new Inscription(),
-        backgroundColor: Colors.red
     );
   }
 }

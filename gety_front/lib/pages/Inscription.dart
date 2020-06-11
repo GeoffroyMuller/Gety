@@ -10,6 +10,8 @@ class Inscription extends StatefulWidget {
 }
 
 class _Inscription extends State<Inscription> {
+  String email;
+
   @override
   Widget build(BuildContext context) {
     return new Form(
@@ -25,12 +27,15 @@ class _Inscription extends State<Inscription> {
           SizedBox(height: 16.0),
           TextField(
             decoration: InputDecoration(
-              labelText: 'mdp'
+              labelText: 'mot de passe'
             ),
           ),
           Container(
             child: RaisedButton(
-              child: Text('Connexion'),
+              onPressed: () => {
+                print("TEST INSCRIPTION")
+              },
+              child: Text('S\'inscrire'),
             ),
           )
         ],
