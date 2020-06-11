@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gety_front/pages/Home.dart';
 
 void main() {
   runApp(new MyApp());
@@ -18,29 +19,5 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class Home extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return new _Home();
-  }
-}
 
-class _Home extends State<Home> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: new AppBar(
-        title: new Text("Gety"),
-        leading: new Icon(Icons.android),
-        actions: <Widget>[
-          new Icon(Icons.android),
-          new Icon(Icons.android),
-          new Icon(Icons.android),
-        ],
-        elevation: 20.0,
-      ),
-      backgroundColor: Colors.red
-    );
-  }
-}
 
