@@ -14,7 +14,8 @@ class _Inscription extends State<Inscription> {
 
   @override
   Widget build(BuildContext context) {
-    return new Form(
+    return monformulaire();
+    /*return new Form(
         child: Padding(
       padding: new EdgeInsets.all(20),
       child: new Column(
@@ -33,13 +34,49 @@ class _Inscription extends State<Inscription> {
           Container(
             child: RaisedButton(
               onPressed: () => {
-                print("TEST INSCRIPTION")
+                print("TEST INSCRIPTION");
               },
               child: Text('S\'inscrire'),
             ),
           )
         ],
       ),
-    ));
+    ));*/
+  }
+
+  Form monformulaire(){
+    final _formKey = GlobalKey<FormState>();
+    return Form(
+      key: _formKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          TextFormField(
+            decoration: const InputDecoration(
+              hintText: 'Enter your email',
+            ),
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return 'value: '+value;
+            },
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
+            child: RaisedButton(
+              onPressed: () {
+                // Validate will return true if the form is valid, or false if
+                // the form is invalid.
+                if (_formKey.currentState.validate()) {
+                  // Process data.
+                }
+              },
+              child: Text('Submit'),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
