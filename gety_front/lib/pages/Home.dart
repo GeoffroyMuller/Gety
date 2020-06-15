@@ -15,8 +15,10 @@ class _Home extends State<Home> {
     return Scaffold(
         appBar: new AppBar(
             title: new Text("Gety"),
+            centerTitle: true,
             leading: new Icon(Icons.android),
             actions: <Widget>[
+              new Icon(Icons.android),
             ],
             elevation: 20.0
         ),
