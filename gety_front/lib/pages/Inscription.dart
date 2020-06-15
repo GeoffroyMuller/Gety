@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:gety_front/components/ConnectionForm.dart';
 
 class Inscription extends StatefulWidget {
   @override
@@ -10,7 +11,6 @@ class Inscription extends StatefulWidget {
 }
 
 class _Inscription extends State<Inscription> {
-  String email;
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +22,11 @@ class _Inscription extends State<Inscription> {
           padding: EdgeInsets.all(15.0),
           children: <Widget>[
             Card(
-              child: Container(
-                padding: EdgeInsets.all(10.0),
-                child: monformulaire(),
+                child: Container(
+                  padding: EdgeInsets.all(10.0),
+                  child: ConnectionForm(),
                 )
-              ),
+            ),
             SizedBox(
               height: 15.0,
             ),
@@ -45,83 +45,7 @@ class _Inscription extends State<Inscription> {
     );
   }
 
-  Form monformulaire() {
-    final _formKey = GlobalKey<FormState>();
-
-    return Form(
-      key: _formKey,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          TextFormField(
-            decoration: const InputDecoration(
-              prefixIcon: Icon(Icons.person),
-              hintText: 'Email',
-            ),
-            validator: (value) {
-              if (value.isEmpty) {
-                return 'S\'il te plaît entre un email';
-              }else{
-                //recup email
-              }
-              return null;
-            },
-          ),
-          SizedBox(
-            height: 15.0,
-          ),
-          TextFormField(
-            decoration: const InputDecoration(
-              prefixIcon: Icon(Icons.lock),
-              hintText: 'Mots de passe',
-            ),
-            validator: (value) {
-              if (value.isEmpty) {
-                return 'S\'il te plaît entre un mot de passe';
-              }else{
-                //recup mdp
-              }
-              return null;
-            },
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
-            child: RaisedButton(
-
-              onPressed: () {
-                // Validate will return true if the form is valid, or false if
-                // the form is invalid.
-                print("test");
-
-
-                if (_formKey.currentState.validate()) {
-                  // If the form is valid, display a snackbar. In the real world,
-                  // you'd often call a server or save the information in a database.
-                  //defocus le clavier
-                  FocusScope.of(context).requestFocus(new FocusNode());
-                  Scaffold
-                      .of(context)
-                      .showSnackBar(SnackBar(
-                      backgroundColor: Colors.red,
-                      content: Text('Test: email et mdp rentré !!')));
-                }
-              },
-              child: Text(
-                "CONNEXION",
-                style: TextStyle(
-                  fontSize: 14.0,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-  Scaffold monformulaire2(){
+  Scaffold monformulaire2() {
     return Scaffold(
       body: Center(
         child: ListView(
@@ -213,4 +137,4 @@ class _Inscription extends State<Inscription> {
     );
   }
 
-
+}
