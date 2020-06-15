@@ -36,9 +36,13 @@ class _ConnectionForm extends State<ConnectionForm> {
             height: 15.0,
           ),
           TextFormField(
+            obscureText: true,
             decoration: const InputDecoration(
               prefixIcon: Icon(Icons.lock),
               hintText: 'Mots de passe',
+              hintStyle: TextStyle(
+                color: Colors.white
+              )
             ),
             validator: (value) {
               if (value.isEmpty) {
