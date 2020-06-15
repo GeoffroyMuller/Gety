@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gety_front/components/Header.dart';
-import 'package:gety_front/pages/Inscription.dart';
+import 'package:gety_front/pages/Connection.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -22,7 +21,7 @@ class _Home extends State<Home> {
             ],
             elevation: 20.0
         ),
-        body: new Inscription(),
+        body: new Connection(),
     );
   }
 }
