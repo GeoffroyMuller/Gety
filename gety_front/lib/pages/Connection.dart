@@ -37,14 +37,17 @@ class _Connection extends State<Connection> {
             SizedBox(
               height: 15.0,
             ),
-            Row(
-              children: <Widget>[
-                Expanded(child: Text("Mots de passe oublié ?")),
-                Text("S'inscrire",
-                    style: TextStyle(
-                      color: Colors.blue,
-                    )),
-              ],
+            Container(
+              padding: EdgeInsets.only(left: 5, right: 5),
+              child:  Row(
+                children: <Widget>[
+                  Expanded(child: Text("Mots de passe oublié ?")),
+                  Text("S'inscrire",
+                      style: TextStyle(
+                        color: Colors.blue,
+                      )),
+                ],
+              ),
             ),
           ],
         ),
