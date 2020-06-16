@@ -31,7 +31,9 @@ class UserController extends ResourceController {
   Future<Response> create(@Bind.body(ignore: ["id"]) User user) async {
     print(user);
     final query = Query<User>(context)..values = user;
-    final inserted = await query.insert();
-    return Response.ok(inserted);
+    //final inserted = await query.insert();
+    //return Response.ok(inserted);
+    user.id = 1;
+    return Response.ok(user);
   }
 }
