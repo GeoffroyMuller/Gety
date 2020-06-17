@@ -11,7 +11,7 @@ class Router {
   static Router get instance =>
       _instance = _instance ?? Router._();
 
-  Map<String, Map<String, Controller>> controllers;
+  Map<String, Map<String, Function>> controllers;
 
   run(HttpRequest request) {
     String url = request.uri.toString();
@@ -32,20 +32,25 @@ class Router {
     }
   }
 
-  get(String route, Controller controller) {
-    this.controllers["GET"][route] = controller;
+  Router get(String route, Function function) {
+    return _addRoute(route, function, "GET");
   }
 
-  post(String route, Controller controller) {
-    this.controllers["POST"][route] = controller;
+  Router post(String route, Function function) {
+    return _addRoute(route, function, "POST");
   }
 
-  put(String route, Controller controller) {
-    this.controllers["PUT"][route] = controller;
+  Router put(String route, Function function) {
+    return _addRoute(route, function, "PUT");
   }
 
-  delete(String route, Controller controller) {
-    this.controllers["DELETE"][route] = controller;
+  Router delete(String route, Function function) {
+    return _addRoute(route, function, "DELETE");
+  }
+
+  Router _addRoute(String route, Function function, String method) {
+    this.controllers[method][route] = function;
+    return this;
   }
 
 }
