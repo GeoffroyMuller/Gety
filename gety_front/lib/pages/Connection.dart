@@ -56,6 +56,7 @@ class _Connection extends State<Connection> {
   }
 }
 
+// to keep for example
 Scaffold monformulaire2() {
   return Scaffold(
     body: Center(
