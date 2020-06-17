@@ -1,7 +1,5 @@
 import 'dart:io';
 
-import 'Controller.dart';
-
 class Router {
 
   Router._();
@@ -15,20 +13,10 @@ class Router {
 
   run(HttpRequest request) {
     String url = request.uri.toString();
-    print(url);
-    switch(request.method) {
-      case 'GET':
-        print('GET');
-        break;
-      case 'POST':
-        print('POST');
-        break;
-      case 'PUT':
-        print('PUT');
-        break;
-      case 'DELETE':
-        print('DELETE');
-        break;
+    String method = request.method;
+
+    if(controllers[method] != null && controllers[method][url] != null) {
+      controllers[method][url](request);
     }
   }
 
@@ -49,6 +37,8 @@ class Router {
   }
 
   Router _addRoute(String route, Function function, String method) {
+    print("this.controllers[$method][$route] = $function");
+    // todo : make it work
     this.controllers[method][route] = function;
     return this;
   }
