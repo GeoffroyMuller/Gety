@@ -22,17 +22,14 @@ class _Connection extends State<Connection> {
           )
       ),
       child: Center(
-        child: ListView(
-          shrinkWrap: true,
-          padding: EdgeInsets.all(15.0),
+        child: Column(
           children: <Widget>[
-            Card(
+            Container(
                 child: Container(
-                  decoration: new BoxDecoration(
-                    color: Colors.black45
-                  ),
                   padding: EdgeInsets.all(10.0),
-                  child: ConnectionForm(),
+                  child: Center(
+                    child: ConnectionForm(),
+                  ),
                 )),
             SizedBox(
               height: 15.0,

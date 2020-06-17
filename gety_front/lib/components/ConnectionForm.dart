@@ -18,10 +18,19 @@ class _ConnectionForm extends State<ConnectionForm> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+          SizedBox(
+            height: 190.0,
+          ),
           TextFormField(
+
             decoration: const InputDecoration(
-              prefixIcon: Icon(Icons.person),
+              border: OutlineInputBorder(),
+              prefixIcon: Icon(
+                Icons.person,
+                color: Colors.white,
+              ),
               hintText: 'Email',
+              hintStyle: TextStyle(color: Colors.white)
             ),
             validator: (value) {
               if (value.isEmpty) {
@@ -33,12 +42,16 @@ class _ConnectionForm extends State<ConnectionForm> {
             },
           ),
           SizedBox(
-            height: 15.0,
+            height: 20.0,
           ),
           TextFormField(
             obscureText: true,
             decoration: const InputDecoration(
-                prefixIcon: Icon(Icons.lock),
+                border: OutlineInputBorder(),
+                prefixIcon: Icon(
+                  Icons.lock,
+                  color: Colors.white,
+                ),
                 hintText: 'Mots de passe',
                 hintStyle: TextStyle(color: Colors.white)),
             validator: (value) {
@@ -49,6 +62,9 @@ class _ConnectionForm extends State<ConnectionForm> {
               }
               return null;
             },
+          ),
+          SizedBox(
+            height: 60.0,
           ),
           ButtonStyle(context, _formKey, null, "CONNEXION"),
         ],
