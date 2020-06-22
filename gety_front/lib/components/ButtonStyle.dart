@@ -8,7 +8,7 @@ class ButtonStyle extends Container {
     VoidCallback onPressed,
     String name,
   ) : super(
-          height: 60,
+          height: 50,
           child: RaisedButton(
             onPressed: onPressed = () {
               // Validate will return true if the form is valid, or false if

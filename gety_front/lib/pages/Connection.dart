@@ -16,37 +16,25 @@ class _Connection extends State<Connection> {
     return Container(
       decoration: new BoxDecoration(
           gradient: new LinearGradient(
-            colors: [Colors.red, Colors.purple],
-            begin:  FractionalOffset.topLeft,
-            end: FractionalOffset.bottomRight,
-          )
-      ),
+        colors: [Colors.red, Colors.purple],
+        begin: FractionalOffset.topLeft,
+        end: FractionalOffset.bottomRight,
+      )),
       child: Center(
-        child: Column(
-          children: <Widget>[
-            Container(
-                child: Container(
-                  padding: EdgeInsets.all(10.0),
-                  child: Center(
-                    child: ConnectionForm(),
-                  ),
-                )),
-            SizedBox(
-              height: 15.0,
-            ),
-            Container(
-              padding: EdgeInsets.only(left: 5, right: 5),
-              child:  Row(
-                children: <Widget>[
-                  Expanded(child: Text("Mots de passe oublié ?")),
-                  Text("S'inscrire",
-                      style: TextStyle(
-                        color: Colors.blue,
-                      )),
-                ],
-              ),
-            ),
-          ],
+        child: SingleChildScrollView(
+          padding: EdgeInsets.symmetric(
+            horizontal: 40
+          ),
+          child: Column(
+            children: <Widget>[
+              Container(
+                  child: Container(
+                child: Center(
+                  child: ConnectionForm(),
+                ),
+              ))
+            ],
+          ),
         ),
       ),
     );
@@ -127,19 +115,19 @@ Scaffold monformulaire2() {
         children: <Widget>[
           Expanded(
               child: RaisedButton(
-                padding: EdgeInsets.all(15.0),
-                onPressed: () {},
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(
-                      32.0,
-                    ),
-                    side: BorderSide(color: Color(0xFF179CDF))),
-                child: Text(
-                  "SKIP SIGN UP FOR NOW",
-                  style: TextStyle(fontSize: 18.0, color: Color(0xFF179CDF)),
+            padding: EdgeInsets.all(15.0),
+            onPressed: () {},
+            color: Colors.white,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(
+                  32.0,
                 ),
-              )),
+                side: BorderSide(color: Color(0xFF179CDF))),
+            child: Text(
+              "SKIP SIGN UP FOR NOW",
+              style: TextStyle(fontSize: 18.0, color: Color(0xFF179CDF)),
+            ),
+          )),
         ],
       ),
     ),

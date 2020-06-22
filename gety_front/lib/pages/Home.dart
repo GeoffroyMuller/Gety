@@ -12,7 +12,7 @@ class _Home extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: new AppBar(
+        /*appBar: new AppBar(
             title: new Text("Gety"),
             centerTitle: true,
             leading: new Icon(Icons.android),
@@ -20,7 +20,7 @@ class _Home extends State<Home> {
               new Icon(Icons.android),
             ],
             elevation: 20.0
-        ),
+        ),*/
         body: new Connection(),
     );
   }
