@@ -15,6 +15,9 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: new Home(),
+      routes: {
+
+      },
     );
   }
 }

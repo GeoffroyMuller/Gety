@@ -1,13 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gety_front/components/ConnectionForm.dart';
+import 'package:gety_front/pages/Messagerie.dart';
 
 class Connection extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() {
-    SnackBar(backgroundColor: Colors.red, content: Text('Test: Connexion'));
-    return new _Connection();
-  }
+  _Connection createState() => new _Connection();
 }
 
 class _Connection extends State<Connection> {
@@ -39,7 +37,20 @@ class _Connection extends State<Connection> {
       ),
     );
   }
+
+  void getMessagerie() {
+    Navigator.push(context, new MaterialPageRoute(
+        builder: (BuildContext context){
+          return new Messagerie("Messagerie");
+        }
+    ));
+  }
 }
+
+
+
+
+
 
 // to keep for example
 Scaffold monformulaire2() {

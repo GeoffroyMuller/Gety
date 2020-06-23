@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gety_front/pages/Messagerie.dart';
 
 class ButtonStyle extends Container {
   ButtonStyle(
@@ -11,6 +12,7 @@ class ButtonStyle extends Container {
           height: 50,
           child: RaisedButton(
             onPressed: onPressed = () {
+              
               // Validate will return true if the form is valid, or false if
               // the form is invalid.
               print("ButtonStyle [$name] : Pressed");
@@ -24,7 +26,16 @@ class ButtonStyle extends Container {
                     backgroundColor: Colors.red,
                     content: Text('ButtonStyle [$name] submit validate')));
                 print("ButtonStyle [$name] Form : Submit validate");
+                /*Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => new Messagerie()),
+                );*/
               }
+              Navigator.push(context, new MaterialPageRoute(
+                  builder: (BuildContext context){
+                    return new Messagerie("Messagerie");
+                  }
+              ));
             },
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(
