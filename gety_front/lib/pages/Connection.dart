@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gety_front/components/ConnectionForm.dart';
-import 'package:gety_front/pages/Messagerie.dart';
+import 'package:gety_front/pages/Messenger.dart';
 
 class Connection extends StatefulWidget {
   @override
@@ -11,49 +11,35 @@ class Connection extends StatefulWidget {
 class _Connection extends State<Connection> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: new BoxDecoration(
-          gradient: new LinearGradient(
-        colors: [Colors.red, Colors.purple],
-        begin: FractionalOffset.topLeft,
-        end: FractionalOffset.bottomRight,
-      )),
-      child: Center(
-        child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(
-            horizontal: 40
-          ),
-          child: Column(
-            children: <Widget>[
-              Container(
-                  child: Container(
-                child: Center(
-                  child: ConnectionForm(),
-                ),
-              ))
-            ],
+    return Scaffold(
+      body: Container(
+        decoration: new BoxDecoration(
+            gradient: new LinearGradient(
+              colors: [Colors.red, Colors.purple],
+              begin: FractionalOffset.topLeft,
+              end: FractionalOffset.bottomRight,
+            )),
+        child: Center(
+          child: SingleChildScrollView(
+            padding: EdgeInsets.symmetric(horizontal: 40),
+            child: Column(
+              children: <Widget>[
+                Container(
+                    child: Container(
+                      child: Center(
+                        child: ConnectionForm(),
+                      ),
+                    ))
+              ],
+            ),
           ),
         ),
       ),
     );
   }
-
-  void getMessagerie() {
-    Navigator.push(context, new MaterialPageRoute(
-        builder: (BuildContext context){
-          return new Messagerie("Messagerie");
-        }
-    ));
-  }
 }
-
-
-
-
-
-
 // to keep for example
-Scaffold monformulaire2() {
+/*Scaffold monformulaire2() {
   return Scaffold(
     body: Center(
       child: ListView(
@@ -143,4 +129,4 @@ Scaffold monformulaire2() {
       ),
     ),
   );
-}
+}*/

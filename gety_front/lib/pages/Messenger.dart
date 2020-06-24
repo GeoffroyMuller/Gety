@@ -2,23 +2,23 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gety_front/components/ConnectionForm.dart';
 
-class Messagerie extends StatefulWidget {
+class Messenger extends StatefulWidget {
 
-  Messagerie(String s);
+  Messenger();
 
   @override
   State<StatefulWidget> createState() {
     SnackBar(backgroundColor: Colors.red, content: Text('Test: Connexion'));
-    return new _Messagerie();
+    return new _Messenger();
   }
 }
 
-class _Messagerie extends State<Messagerie> {
+class _Messenger extends State<Messenger> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       body: Center(
-        child: Text("Messagerie"),
+        child: Text("Messenger"),
       ),
     );
   }

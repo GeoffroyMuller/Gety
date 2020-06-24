@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:gety_front/components/ButtonStyle.dart';
-import 'package:gety_front/pages/Messagerie.dart';
+import 'package:gety_front/components/ButtonSubmitStyle.dart';
 
 class ConnectionForm extends StatefulWidget {
   @override
@@ -68,7 +67,7 @@ class _ConnectionForm extends State<ConnectionForm> {
                 },
               ),
               SizedBox(height: 30),
-              ButtonStyle(context, _formKey, null, "CONNEXION"),
+              ButtonSubmitStyle(context, _formKey, null, "CONNEXION"),
               SizedBox(height: 30),
               Container(
                 color: Colors.green,
@@ -86,4 +85,10 @@ class _ConnectionForm extends State<ConnectionForm> {
           ),
         ));
   }
+
+  void formValidation(){
+    //si il est valide
+    Navigator.pushNamed(context, '/messenger');
+  }
+
 }

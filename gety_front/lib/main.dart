@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gety_front/pages/Connection.dart';
 import 'package:gety_front/pages/Home.dart';
+import 'package:gety_front/pages/Messenger.dart';
 
 void main() {
   runApp(new MyApp());
@@ -14,8 +16,12 @@ class MyApp extends StatelessWidget {
           //primarySwatch: Colors.blueGrey
       ),
       debugShowCheckedModeBanner: false,
-      home: new Home(),
+      initialRoute: '/',
       routes: {
+        '/' : (context) => new Home(),
+        '/connection': (context) => new Connection(),
+        '/messenger' : (context) => new Messenger(),
+        '/swipehome' : (context) => new Messenger(),
 
       },
     );
