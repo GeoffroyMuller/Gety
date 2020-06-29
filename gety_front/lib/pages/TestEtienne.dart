@@ -15,8 +15,13 @@ class TestEtienne extends StatefulWidget {
 class _TestEtienne extends State<TestEtienne> {
   List<User> _users = [
     new User(id: 1, firstname: "Etienne", lastname: "ROBERT", email: "etienne@localmail.fr", password: "testpwd", avatar: "etienne"),
-    new User(id: 1, firstname: "Geoffroy", lastname: "MULLER", email: "geoff@localmail.fr", password: "testpwd", avatar: "geoff")
+    new User(id: 2, firstname: "Geoffroy", lastname: "MULLER", email: "geoff@localmail.fr", password: "testpwd", avatar: "geoff")
   ];
+
+  bool selectUser(User user) {
+    print(user);
+    return  null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,60 +29,40 @@ class _TestEtienne extends State<TestEtienne> {
       appBar: AppBar(
         title: Text('TestEtienne Gety test'),
       ),
-      body: Center(
-        child: DataTable(
-          columns: const <DataColumn>[
-            DataColumn(
-              label: Text(
-                'Firstname',
-                style: TextStyle(fontStyle: FontStyle.italic),
-              ),
-            ),
-            DataColumn(
-              label: Text(
-                'Lastname',
-                style: TextStyle(fontStyle: FontStyle.italic),
-              ),
-            ),
-            DataColumn(
-              label: Text(
-                'Email',
-                style: TextStyle(fontStyle: FontStyle.italic),
-              ),
-            ),
+      body: Container(
+        margin: EdgeInsets.only(left: 0.0, top: 20.0),
+        child: ListView(
+          children: <Widget>[
+            this.renderUserTable()
           ],
-          rows: _users.map((user) => DataRow(
-            cells: <DataCell>[
-              DataCell(Text(user.firstname)),
-              DataCell(Text(user.lastname)),
-              DataCell(Text(user.email))
-            ]
-          )).toList()
-          /*const <DataRow>[
-            DataRow(
-              cells: <DataCell>[
-                DataCell(Text('Sarah')),
-                DataCell(Text('19')),
-                DataCell(Text('Student')),
-              ],
-            ),
-            DataRow(
-              cells: <DataCell>[
-                DataCell(Text('Janine')),
-                DataCell(Text('43')),
-                DataCell(Text('Professor')),
-              ],
-            ),
-            DataRow(
-              cells: <DataCell>[
-                DataCell(Text('William')),
-                DataCell(Text('27')),
-                DataCell(Text('Associate Professor')),
-              ],
-            ),
-          ],*/
         ),
       ),
+    );
+  }
+
+  renderUserTable() {
+    return DataTable(
+        columnSpacing: 10,
+        showCheckboxColumn: false,
+        dataRowHeight: 40,
+        headingRowHeight: 60,
+        columns: const <DataColumn>[
+          DataColumn(label: Text('ID', style: TextStyle(fontStyle: FontStyle.italic, color: Colors.red, fontSize: 14))),
+          DataColumn(label: Text('Avatar', style: TextStyle(fontStyle: FontStyle.italic, color: Colors.red, fontSize: 14))),
+          DataColumn(label: Text('Firstname', style: TextStyle(fontStyle: FontStyle.italic, color: Colors.red, fontSize: 14))),
+          DataColumn(label: Text('Lastname', style: TextStyle(fontStyle: FontStyle.italic, color: Colors.red, fontSize: 14))),
+          DataColumn(label: Text('Email', style: TextStyle(fontStyle: FontStyle.italic, color: Colors.red, fontSize: 14))),
+        ],
+        rows: _users.map((user) => DataRow(
+            onSelectChanged: (bool input)  => this.selectUser(user),
+            cells: <DataCell>[
+              DataCell(Text(user.id.toString())/*, onTap: ()  => this.selectUser(user)*/),
+              DataCell(Text(user.avatar), /*, onTap: ()  => this.selectUser(user)*/),
+              DataCell(Text(user.firstname)/*, onTap: ()  => this.selectUser(user)*/),
+              DataCell(Text(user.lastname)/*, onTap: ()  => this.selectUser(user)*/),
+              DataCell(Text(user.email)/*, onTap: ()  => this.selectUser(user)*/)
+            ]
+        )).toList()
     );
   }
 }
