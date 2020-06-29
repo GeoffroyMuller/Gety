@@ -34,7 +34,21 @@ class _Home extends State<Home> {
                 Navigator.pushNamed(context, '/connection');
               },
             ),
-            RaisedButton(onPressed: null),
+            SizedBox(height: 100),
+            RaisedButton(
+              child: Text('TestEtienne'),
+              onPressed: () {
+                // Navigate to the second screen when tapped.
+                Navigator.pushNamed(context, '/testetienne');
+              },
+            ),
+            RaisedButton(
+              child: Text('TestGeoff'),
+              onPressed: () {
+                // Navigate to the second screen when tapped.
+                Navigator.pushNamed(context, '/testgeoff');
+              },
+            ),
           ],
       ),
       bottomNavigationBar: BottomAppBar(
