@@ -67,7 +67,7 @@ class _ConnectionForm extends State<ConnectionForm> {
                 },
               ),
               SizedBox(height: 30),
-              ButtonSubmitStyle(context, _formKey, null, "CONNEXION"),
+              ButtonSubmitStyle(context, _formKey, (){formValidation();}, "CONNEXION"),
               SizedBox(height: 30),
               Container(
                 color: Colors.green,
@@ -88,7 +88,7 @@ class _ConnectionForm extends State<ConnectionForm> {
 
   void formValidation(){
     //si il est valide
-    Navigator.pushNamed(context, '/messenger');
+    Navigator.pushNamed(context, '/swipehome');
   }
 
 }

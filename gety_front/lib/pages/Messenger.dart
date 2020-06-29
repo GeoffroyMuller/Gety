@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:gety_front/components/ConnectionForm.dart';
 
 class Messenger extends StatefulWidget {
-
   Messenger();
 
   @override
@@ -16,9 +15,18 @@ class Messenger extends StatefulWidget {
 class _Messenger extends State<Messenger> {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Messenger Gety test'),
+      ),
       body: Center(
-        child: Text("Messenger"),
+        child: RaisedButton(
+          child: Text('Back Swipe Home Context '),
+          onPressed: () {
+            // Navigate to the second screen when tapped.
+            Navigator.pop(context);
+          },
+        ),
       ),
     );
   }

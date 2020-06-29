@@ -9,7 +9,45 @@ class Home extends StatefulWidget {
 }
 
 class _Home extends State<Home> {
-  @override
+  bool clickedCentreFAB = false; //boolean used to handle container animation which expands from the FAB
+  int selectedIndex = 0; //to handle which item is currently selected in the bottom app bar
+  String text = "Home";
+
+  //call this method on click of each bottom app bar item to update the screen
+  void updateTabSelection(int index, String buttonText) {
+    setState(() {
+      selectedIndex = index;
+      text = buttonText;
+    });
+  }
+
+   @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+          children: <Widget>[
+            SizedBox(height: 100),
+            RaisedButton(
+              child: Text('Launch Connexion'),
+              onPressed: () {
+                // Navigate to the second screen when tapped.
+                Navigator.pushNamed(context, '/connection');
+              },
+            ),
+            RaisedButton(onPressed: null),
+          ],
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Container(
+            color : Colors.red,
+            height: 75,
+            margin: EdgeInsets.only(left: 0.0, right: 0.0)
+        ),
+      ),
+    );
+  }
+}
+ /* @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -26,4 +64,5 @@ class _Home extends State<Home> {
       ),
     );
   }
-}
+}}*/
+

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gety_front/pages/Connection.dart';
 import 'package:gety_front/pages/Home.dart';
 import 'package:gety_front/pages/Messenger.dart';
+import 'package:gety_front/pages/SwipeHome.dart';
 
 void main() {
   runApp(new MyApp());
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         '/' : (context) => new Home(),
         '/connection': (context) => new Connection(),
         '/messenger' : (context) => new Messenger(),
-        '/swipehome' : (context) => new Messenger(),
+        '/swipehome' : (context) => new SwipeHome(),
 
       },
     );
