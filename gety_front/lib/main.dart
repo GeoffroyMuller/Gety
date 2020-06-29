@@ -4,6 +4,7 @@ import 'package:gety_front/pages/Home.dart';
 import 'package:gety_front/pages/Messenger.dart';
 import 'package:gety_front/pages/SwipeHome.dart';
 import 'package:gety_front/pages/TestEtienne.dart';
+import 'package:gety_front/pages/TestGeoff.dart';
 
 void main() {
   runApp(new MyApp());
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         '/swipehome' : (context) => new SwipeHome(),
 
         '/testetienne' : (context) => new TestEtienne(),
-        '/testgeoff' : (context) => new SwipeHome(),
+        '/testgeoff' : (context) => new TestGeoff(),
 
       },
     );
