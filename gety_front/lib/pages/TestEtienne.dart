@@ -18,13 +18,21 @@ class _TestEtienne extends State<TestEtienne> {
     new User(id: 2, firstname: "Geoffroy", lastname: "MULLER", email: "geoff@localmail.fr", password: "testpwd", avatar: "geoff")
   ];
 
+  List<int> _selectedUser = [];
+
   bool selectUser(User user) {
-    print(user);
-    return  null;
+    if (_selectedUser.indexOf(user.id) != -1) {
+      _selectedUser.remove(user.id);
+    } else {
+      _selectedUser.add(user.id);
+    }
+    setState(() {});
+
   }
 
   @override
   Widget build(BuildContext context) {
+    //_selectedUser=List();
     return Scaffold(
       appBar: AppBar(
         title: Text('TestEtienne Gety test'),
@@ -33,28 +41,34 @@ class _TestEtienne extends State<TestEtienne> {
         margin: EdgeInsets.only(left: 0.0, top: 20.0),
         child: ListView(
           children: <Widget>[
-            this.renderUserTable()
+            this.renderUserTable(),
+            Align(alignment: Alignment.topRight, child: RaisedButton(onPressed: this.delete(), child: Text('Delete'))),
           ],
         ),
       ),
     );
   }
 
+  delete() {
+
+  }
+
   renderUserTable() {
     return DataTable(
-        columnSpacing: 10,
-        showCheckboxColumn: false,
+        columnSpacing: 4,
+        showCheckboxColumn: true,
         dataRowHeight: 40,
         headingRowHeight: 60,
         columns: const <DataColumn>[
-          DataColumn(label: Text('ID', style: TextStyle(fontStyle: FontStyle.italic, color: Colors.red, fontSize: 14))),
-          DataColumn(label: Text('Avatar', style: TextStyle(fontStyle: FontStyle.italic, color: Colors.red, fontSize: 14))),
-          DataColumn(label: Text('Firstname', style: TextStyle(fontStyle: FontStyle.italic, color: Colors.red, fontSize: 14))),
-          DataColumn(label: Text('Lastname', style: TextStyle(fontStyle: FontStyle.italic, color: Colors.red, fontSize: 14))),
-          DataColumn(label: Text('Email', style: TextStyle(fontStyle: FontStyle.italic, color: Colors.red, fontSize: 14))),
+          DataColumn(label: Text('ID', style: TextStyle(fontStyle: FontStyle.italic, color: Colors.red, fontSize: 12))),
+          DataColumn(label: Text('Avatar', style: TextStyle(fontStyle: FontStyle.italic, color: Colors.red, fontSize: 12))),
+          DataColumn(label: Text('Firstname', style: TextStyle(fontStyle: FontStyle.italic, color: Colors.red, fontSize: 12))),
+          DataColumn(label: Text('Lastname', style: TextStyle(fontStyle: FontStyle.italic, color: Colors.red, fontSize: 12))),
+          DataColumn(label: Text('Email', style: TextStyle(fontStyle: FontStyle.italic, color: Colors.red, fontSize: 12))),
         ],
         rows: _users.map((user) => DataRow(
             onSelectChanged: (bool input)  => this.selectUser(user),
+            selected: _selectedUser.indexOf(user.id) != -1,
             cells: <DataCell>[
               DataCell(Text(user.id.toString())/*, onTap: ()  => this.selectUser(user)*/),
               DataCell(Text(user.avatar), /*, onTap: ()  => this.selectUser(user)*/),
