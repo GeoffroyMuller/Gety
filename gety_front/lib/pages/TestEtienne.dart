@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gety_front/components/ConnectionForm.dart';
+import 'package:gety_front/config/styles.dart';
 import 'package:gety_front/models/User.dart';
 
 class TestEtienne extends StatefulWidget {
@@ -35,14 +36,21 @@ class _TestEtienne extends State<TestEtienne> {
     //_selectedUser=List();
     return Scaffold(
       appBar: AppBar(
-        title: Text('TestEtienne Gety test'),
+        title: Text('Etienne Tests'),
       ),
       body: Container(
         margin: EdgeInsets.only(left: 0.0, top: 20.0),
         child: ListView(
           children: <Widget>[
             this.renderUserTable(),
-            Align(alignment: Alignment.topRight, child: RaisedButton(onPressed: this.delete(), child: Text('Delete'))),
+            Align(
+                alignment: Alignment(.925, 0),
+                child: IconButton(
+                    icon: Icon(Icons.delete_forever, color: Colors.red),
+                    onPressed: () => {this.delete()},
+                    //child: Text('Delete', style: TextStyle(color: Colors.black))
+                )
+            ),
           ],
         ),
       ),
@@ -50,7 +58,7 @@ class _TestEtienne extends State<TestEtienne> {
   }
 
   delete() {
-
+    print(_selectedUser);
   }
 
   renderUserTable() {
@@ -60,11 +68,11 @@ class _TestEtienne extends State<TestEtienne> {
         dataRowHeight: 40,
         headingRowHeight: 60,
         columns: const <DataColumn>[
-          DataColumn(label: Text('ID', style: TextStyle(fontStyle: FontStyle.italic, color: Colors.red, fontSize: 12))),
-          DataColumn(label: Text('Avatar', style: TextStyle(fontStyle: FontStyle.italic, color: Colors.red, fontSize: 12))),
-          DataColumn(label: Text('Firstname', style: TextStyle(fontStyle: FontStyle.italic, color: Colors.red, fontSize: 12))),
-          DataColumn(label: Text('Lastname', style: TextStyle(fontStyle: FontStyle.italic, color: Colors.red, fontSize: 12))),
-          DataColumn(label: Text('Email', style: TextStyle(fontStyle: FontStyle.italic, color: Colors.red, fontSize: 12))),
+          DataColumn(label: Text('ID', style: listHeaderTextStyle)),
+          DataColumn(label: Text('Avatar', style: listHeaderTextStyle)),
+          DataColumn(label: Text('Firstname', style: listHeaderTextStyle)),
+          DataColumn(label: Text('Lastname', style: listHeaderTextStyle)),
+          DataColumn(label: Text('Email', style: listHeaderTextStyle)),
         ],
         rows: _users.map((user) => DataRow(
             onSelectChanged: (bool input)  => this.selectUser(user),
